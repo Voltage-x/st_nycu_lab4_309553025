@@ -24,10 +24,12 @@ jobs:
       run: mvn install -DskipTests
     - uses: actions/upload-artifact@v2
       with:
-        name: my-artifact
-        path: |
-          /home/runner/.m2/repository/groupId/lab4/1.0-SNAPSHOT/lab4-1.0-SNAPSHOT.jar
-          /home/runner/.m2/repository/groupId/lab4/1.0-SNAPSHOT/lab4-1.0-SNAPSHOT.pom
+        name: my-jar
+        path: /home/runner/.m2/repository/groupId/lab4/1.0-SNAPSHOT/lab4-1.0-SNAPSHOT.jar
+    - uses: actions/upload-artifact@v2
+      with:
+        name: my-pom
+        path: /home/runner/.m2/repository/groupId/lab4/1.0-SNAPSHOT/lab4-1.0-SNAPSHOT.pom
     - name: Test with Maven
       run: mvn test
     
