@@ -30,7 +30,10 @@ jobs:
       with:
         name: my-pom
         path: /home/runner/.m2/repository/groupId/lab4/1.0-SNAPSHOT/lab4-1.0-SNAPSHOT.pom
+  
   test:
+  
+    needs: build
     runs-on: ubuntu-latest
     
     steps:
