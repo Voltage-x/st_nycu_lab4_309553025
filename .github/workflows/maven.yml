@@ -56,7 +56,7 @@ jobs:
       if: ${{ always() }}
       uses: scacap/action-surefire-report@v1
     - name: get list
-      run: ls /home/runner/.m2/repository/groupId/lab4/
+      run: ls /home/runner/.m2/repository/groupId/lab4/1.0-SNAPSHOT/
     - uses: actions/upload-artifact@v2
       with:
         name: my-testreport
