@@ -53,4 +53,4 @@ jobs:
     - name: Test with Maven
       run: mvn test
     - name: get list
-      run: ls target/
+      run: ls target/surefire-reports/
