@@ -54,3 +54,5 @@ jobs:
       run: mvn test
     - name: export test report  
       run: mvn surefire-report:report -DoutputDirectory=/home/runner/.m2/repository/groupId/lab4/1.0-SNAPSHOT/
+    - name: get ls
+      run: ls /home/runner/.m2/repository/groupId/lab4/1.0-SNAPSHOT/
