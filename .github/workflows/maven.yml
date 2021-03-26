@@ -55,3 +55,8 @@ jobs:
     - name: Publish Test Report
       if: ${{ always() }}
       uses: scacap/action-surefire-report@v1
+    - name: upload test report
+    - uses: actions/upload-artifact@v2
+      with:
+        name: my-testreport
+        path: /home/runner/.m2/repository/groupId/lab4/surefire-reports/TEST-*.xml
