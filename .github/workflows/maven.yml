@@ -53,4 +53,4 @@ jobs:
     - name: Test with Maven
       run: mvn test
     - name: export test report  
-      run: mvn surefire-report:report
+      run: mvn surefire-report:report -DoutputDirectory=/home/runner/.m2/repository/groupId/lab4/1.0-SNAPSHOT/
