@@ -52,8 +52,6 @@ jobs:
         path: /home/runner/.m2/repository/groupId/lab4/1.0-SNAPSHOT/
     - name: Test with Maven
       run: mvn test
-    - name: Publish Unit Test Results
-      uses: EnricoMi/publish-unit-test-result-action@v1
-      if: always()
-      with:
-        files: test-results/**/*.xml
+    - name: Publish Test Report
+      if: ${{ always() }}
+      uses: scacap/action-surefire-report@v1
