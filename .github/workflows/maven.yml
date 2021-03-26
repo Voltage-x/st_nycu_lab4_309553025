@@ -52,5 +52,7 @@ jobs:
         path: /home/runner/.m2/repository/groupId/lab4/1.0-SNAPSHOT/
     - name: Test with Maven
       run: mvn test
-    - name: get list
-      run: ls target/surefire-reports/
+    - uses: actions/upload-artifact@v2
+      with:
+        name: my-report
+        path: target/surefire-reports/TEST-GameTest.xml
