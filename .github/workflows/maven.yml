@@ -70,5 +70,25 @@ jobs:
       run: mvn package
     - uses: actions/upload-artifact@v2
       with:
+        name: my-target
+        path: target/
+    - uses: actions/upload-artifact@v2
+      with:
         name: my-package
         path: target/*.jar
+  release:
+    
+    needs: assemble
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/download-artifact@v2
+      with:
+        name: my-target
+        path: target/
+    - name: Release
+      uses: softprops/action-gh-release@v1
+      if: startsWith(github.ref, 'refs/tags/')
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
