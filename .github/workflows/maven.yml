@@ -44,11 +44,31 @@ jobs:
       with:
         name: my-target
         path: target/
-    - name: get target list
-      run: ls target/
     - name: Test with Maven
       run: mvn surefire:test
     - uses: actions/upload-artifact@v2
       with:
         name: my-report
+        path: target/surefire-reports/*.xml
+  assemble:
+  
+    needs: test
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up JDK 1.8
+      uses: actions/setup-java@v1
+      with:
+        java-version: 11.0
+    - uses: actions/download-artifact@v2
+      with:
+        name: my-target
+        path: target/
+    - name: Assemble project
+      run: mvn package
+    - uses: actions/upload-artifact@v2
+      with:
+        name: my-package
+        path: /home/runner/.m2/repository/groupId/lab4/1.0-SNAPSHOT/*.jar
         path: target/surefire-reports/TEST-GameTest.xml
