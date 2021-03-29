@@ -50,6 +50,7 @@ jobs:
       with:
         name: my-report
         path: target/surefire-reports/*.xml
+  
   assemble:
   
     needs: test
@@ -71,4 +72,3 @@ jobs:
       with:
         name: my-package
         path: /home/runner/.m2/repository/groupId/lab4/1.0-SNAPSHOT/*.jar
-        path: target/surefire-reports/TEST-GameTest.xml
