@@ -54,7 +54,7 @@ class GameTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"()&^(%#", "peko", "e-die-e-die-e-die", "TSJ", ""})
+    @ValueSource(strings = {"()&^(%##", "peko", "e-die-e-die-e-die", "TSJ", ""})
     void checkerBadInput(String input) {
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
             game.checker(input);
