@@ -16,7 +16,7 @@ jobs:
 
     steps:
     - name: check tag
-      run: echo ${GITHUB_REF##*/}
+      run: echo ${github.ref}
     - uses: actions/checkout@v2
     - name: Set up JDK 1.8
       uses: actions/setup-java@v1
