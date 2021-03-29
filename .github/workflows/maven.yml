@@ -20,16 +20,14 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 11.0
-    - name: Build with Maven
+    - name: Compile main with Maven
       run: mvn compile
+    - name: Compile test with Maven
+      run: mvn test-compile
     - uses: actions/upload-artifact@v2
       with:
-        name: my-jar
-        path: /home/runner/.m2/repository/groupId/lab4/1.0-SNAPSHOT/lab4-1.0-SNAPSHOT.jar
-    - uses: actions/upload-artifact@v2
-      with:
-        name: my-pom
-        path: /home/runner/.m2/repository/groupId/lab4/1.0-SNAPSHOT/lab4-1.0-SNAPSHOT.pom
+        name: my-target
+        path: target/
   
   test:
   
@@ -44,12 +42,8 @@ jobs:
         java-version: 11.0
     - uses: actions/download-artifact@v2
       with:
-        name: my-jar
-        path: /home/runner/.m2/repository/groupId/lab4/1.0-SNAPSHOT/
-    - uses: actions/download-artifact@v2
-      with:
-        name: my-pom
-        path: /home/runner/.m2/repository/groupId/lab4/1.0-SNAPSHOT/
+        name: my-target
+        path: target/
     - name: Test with Maven
       run: mvn test
     - uses: actions/upload-artifact@v2
