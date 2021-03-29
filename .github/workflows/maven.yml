@@ -47,7 +47,7 @@ jobs:
     - name: get target list
       run: ls target/
     - name: Test with Maven
-      run: mvn test
+      run: mvn surefire:test
     - uses: actions/upload-artifact@v2
       with:
         name: my-report
