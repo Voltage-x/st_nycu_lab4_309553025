@@ -10,7 +10,7 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
+  complie:
 
     runs-on: ubuntu-latest
 
@@ -31,7 +31,7 @@ jobs:
   
   test:
   
-    needs: build
+    needs: complie
     runs-on: ubuntu-latest
     
     steps:
@@ -44,6 +44,8 @@ jobs:
       with:
         name: my-target
         path: target/
+    - name: get target list
+      run: ls target/
     - name: Test with Maven
       run: mvn test
     - uses: actions/upload-artifact@v2
