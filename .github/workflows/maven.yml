@@ -77,8 +77,8 @@ jobs:
         name: my-package
         path: target/*.jar
   release:
-    if: startsWith(github.ref, 'refs/tags/')
     needs: assemble
+    if: startsWith(github.ref, 'refs/tags/v')
     runs-on: ubuntu-latest
     
     steps:
