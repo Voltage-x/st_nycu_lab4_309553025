@@ -71,4 +71,4 @@ jobs:
     - uses: actions/upload-artifact@v2
       with:
         name: my-package
-        path: /home/runner/.m2/repository/groupId/lab4/1.0-SNAPSHOT/*.jar
+        path: target/*.jar
