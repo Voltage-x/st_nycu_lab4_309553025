@@ -11,7 +11,8 @@
     <properties>
         <maven.compiler.source>15</maven.compiler.source>
         <maven.compiler.target>15</maven.compiler.target>
-        <revision>1.0-SNAPSHOT</revision>
+        <maven.build.timestamp.format>yyMMdd_HHmm</maven.build.timestamp.format>
+        <revision>${maven.build.timestamp}-SNAPSHOT</revision>
     </properties>
 
     <dependencies>
