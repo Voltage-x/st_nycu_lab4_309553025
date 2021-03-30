@@ -45,8 +45,7 @@ jobs:
       uses: actions/cache@v2
       with:
         path: ~/.m2/repository
-        restore-keys: |
-          ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+        key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
     - uses: actions/download-artifact@v2
       with:
         name: my-target
@@ -69,6 +68,11 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 11.0
+    - name: Cache local Maven repository
+      uses: actions/cache@v2
+      with:
+        path: ~/.m2/repository
+        key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
     - uses: actions/download-artifact@v2
       with:
         name: my-target
