@@ -65,6 +65,7 @@ jobs:
     - name: Assemble project
       run: mvn package
     - uses: actions/upload-artifact@v2
+      if: startsWith(github.ref, 'refs/tags/v')
       with:
         name: my-target
         path: target/
@@ -72,6 +73,10 @@ jobs:
       with:
         name: buildJar
         path: target/*.jar
+    - uses: geekyeggo/delete-artifact@v1
+      if: startsWith(github.ref, 'refs/tags/') != true
+      with:
+        name: my-target
   release:
     needs: assemble
     if: startsWith(github.ref, 'refs/tags/v')
