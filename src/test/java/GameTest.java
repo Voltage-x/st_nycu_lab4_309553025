@@ -65,18 +65,21 @@ class GameTest {
     @ParameterizedTest
     @MethodSource("player1WinListProvider")
     void judgePlayer1Win(String player1, String player2) {
+
         assertEquals("Player1 win!", game.judge(player1, player2));
     }
 
     @ParameterizedTest
     @MethodSource("player2WinListProvider")
     void judgePlayer2Win(String player1, String player2) {
+
         assertEquals("Player2 win!", game.judge(player1, player2));
     }
 
     @ParameterizedTest
     @MethodSource("DrawListProvider")
     void judgePlayerDraw(String player1, String player2) {
+
         assertEquals("Draw!", game.judge(player1, player2));
     }
 }
